@@ -4,7 +4,7 @@ This project builds a robust, Dockerized data pipeline to fetch and transform st
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - **Python** – Fetching and transforming stock data
 - **Docker** – Containerizing scripts
@@ -16,7 +16,7 @@ This project builds a robust, Dockerized data pipeline to fetch and transform st
 
 ---
 
-## 📊 Architecture
+## Architecture
 
 ![Architecture Diagram](./architecture_diagram.png)
 
@@ -30,22 +30,22 @@ This project builds a robust, Dockerized data pipeline to fetch and transform st
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
-### 🔧 Step 1: Clone the Repository
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/Shiva-prakash-perumal/Yahoo_finance_aws_docker.git
 cd Yahoo_finance_aws_docker
 ```
 
-### 🐳 Step 2: Build Docker Image
+### Step 2: Build Docker Image
 
 ```bash
 docker build -t yahoo-finance-pipeline .
 ```
 
-### 📦 Step 3: Push Image to AWS ECR
+### Step 3: Push Image to AWS ECR
 
 ```bash
 aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
@@ -53,32 +53,32 @@ docker tag yahoo-finance-pipeline <ecr_repo_url>
 docker push <ecr_repo_url>
 ```
 
-### ☁️ Step 4: Create Batch Environment
+### Step 4: Create Batch Environment
 
 - Choose **Fargate**
 - Assign `AWSServiceRoleForBatch`
 - Set job role with `ecs-tasks.amazonaws.com` trust
 
-### 📄 Step 5: Submit Batch Job
+### Step 5: Submit Batch Job
 
 Manually or through EventBridge/CloudWatch
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 .
 ├── fetch_data.py
 ├── transform_data.py
 ├── Dockerfile
-├── diagram.png
+├── images
 ├── README.md
 ```
 
 ---
 
-## 📡 Failure Notifications
+## Failure Notifications
 
 If a Batch job fails:
 - **CloudWatch Events** detect the failure
@@ -87,22 +87,7 @@ If a Batch job fails:
 
 ---
 
-## 💡 Improvements To Explore
-
-- Add schema validation before writing to S3
-- Schedule jobs using EventBridge
-- Visualize trends using Amazon QuickSight or Streamlit
-- Implement retries for transient API failures
-
----
-
-## 🙋‍♂️ Author
+## Author
 
 **Shiva Prakash Perumal**  
 [GitHub](https://github.com/Shiva-prakash-perumal) | [LinkedIn](https://linkedin.com/in/shiva-prakash-perumal)
-
----
-
-## 🪪 License
-
-This project is licensed under the [MIT License](LICENSE).
