@@ -1,4 +1,4 @@
-# 📈 Yahoo Finance Data Pipeline on AWS
+# Yahoo Finance Data Pipeline on AWS
 
 This project builds a robust, Dockerized data pipeline to fetch and transform stock data from the Yahoo Finance API, orchestrated using AWS Batch, and monitored via CloudWatch and SNS. It's designed for scalability, reliability, and seamless integration into AWS cloud environments.
 
